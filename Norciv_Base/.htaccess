@@ -1,0 +1,17 @@
+# <IfModule mod_rewrite.c>
+# #  RewriteEngine On
+#   RewriteBase /Norciv_Base/
+#   RewriteRule ^ index.php [L]
+# </IfModule>
+Options -Indexes
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /Norciv_Base/
+  DirectoryIndex index.php index.html
+
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  RewriteRule ^ index.php [L]
+</IfModule>
